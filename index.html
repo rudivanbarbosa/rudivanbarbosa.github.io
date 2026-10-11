@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rudivan Barbosa, matemático e doutorando em Ciência da Computação</title>
-  <meta name="description" content="Página de Rudivan Barbosa, matemático com foco em otimização e doutorando em Ciência da Computação.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%232438C9'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23D6336C'/%3E%3C/svg%3E">
+  <title>Rudivan Barbosa, matemático e mestre em otimização</title>
+  <meta name="description" content="Página de Rudivan Barbosa">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%232438C9'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23D6336C'/%3E%3C/svg%3E">
   <style>
     :root {
       --bg: #F4F6F8;
@@ -18,6 +20,7 @@
       --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
       --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
+
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #0E1320;
@@ -30,9 +33,15 @@
       }
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-    html { -webkit-text-size-adjust: 100%; }
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
 
     body {
       margin: 0;
@@ -55,7 +64,11 @@
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
     }
-    a:hover { text-decoration-thickness: 2px; }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
     a:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
@@ -69,8 +82,11 @@
       align-items: center;
       padding-block: clamp(3rem, 9vw, 6rem);
     }
+
     @media (min-width: 820px) {
-      .hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+      .hero {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      }
     }
 
     h1 {
@@ -81,7 +97,10 @@
       line-height: 1.02;
       letter-spacing: -0.015em;
     }
-    h1 span { display: block; }
+
+    h1 span {
+      display: block;
+    }
 
     .role {
       margin: 0 0 1rem;
@@ -106,7 +125,10 @@
     }
 
     /* Figura */
-    figure { margin: 0; }
+    figure {
+      margin: 0;
+    }
+
     figure svg {
       display: block;
       width: 100%;
@@ -114,6 +136,7 @@
       max-width: 34rem;
       margin-inline: auto;
     }
+
     figcaption {
       max-width: 34rem;
       margin: 0.75rem auto 0;
@@ -122,7 +145,12 @@
       line-height: 1.5;
     }
 
-    .contour { fill: none; stroke: var(--contour); stroke-width: 1.3; }
+    .contour {
+      fill: none;
+      stroke: var(--contour);
+      stroke-width: 1.3;
+    }
+
     .path {
       fill: none;
       stroke: var(--accent);
@@ -132,16 +160,19 @@
       stroke-dasharray: 1;
       animation: draw 2.4s linear 0.3s both;
     }
+
     .dot {
       fill: var(--bg);
       stroke: var(--accent);
       stroke-width: 1.6;
       animation: show 0.3s ease-out var(--d) both;
     }
+
     .min {
       fill: var(--min);
       animation: show 0.4s ease-out 2.7s both;
     }
+
     .minlabel {
       fill: var(--ink);
       font-family: var(--serif);
@@ -149,10 +180,35 @@
       font-size: 17px;
       animation: show 0.4s ease-out 2.7s both;
     }
-    @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-    @keyframes show { from { opacity: 0; } to { opacity: 1; } }
+
+    @keyframes draw {
+      from {
+        stroke-dashoffset: 1;
+      }
+
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes show {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      .path, .dot, .min, .minlabel { animation: none; }
+
+      .path,
+      .dot,
+      .min,
+      .minlabel {
+        animation: none;
+      }
     }
 
     /* Seções */
@@ -162,8 +218,11 @@
       padding-block: clamp(2.25rem, 6vw, 4rem);
       border-top: 1px solid var(--line);
     }
+
     @media (min-width: 820px) {
-      section { grid-template-columns: 12rem minmax(0, 1fr); }
+      section {
+        grid-template-columns: 12rem minmax(0, 1fr);
+      }
     }
 
     h2 {
@@ -174,26 +233,59 @@
       line-height: 1.25;
     }
 
-    .body { max-width: 40rem; }
-    .body p { margin: 0 0 1rem; }
-    .body p:last-child { margin-bottom: 0; }
+    .body {
+      max-width: 40rem;
+    }
 
-    dl { margin: 0; }
+    .body p {
+      margin: 0 0 1rem;
+    }
+
+    .body p:last-child {
+      margin-bottom: 0;
+    }
+
+    dl {
+      margin: 0;
+    }
+
     .row {
       display: grid;
       gap: 0.15rem 1.5rem;
       padding-block: 0.9rem;
       border-bottom: 1px solid var(--line);
     }
-    .row:first-child { padding-top: 0; }
-    .row:last-child { border-bottom: 0; padding-bottom: 0; }
-    @media (min-width: 560px) {
-      .row { grid-template-columns: 9rem minmax(0, 1fr); }
-    }
-    dt { color: var(--muted); font-size: 0.9375rem; }
-    dd { margin: 0; }
 
-    .contact { margin: 0; padding: 0; list-style: none; }
+    .row:first-child {
+      padding-top: 0;
+    }
+
+    .row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    @media (min-width: 560px) {
+      .row {
+        grid-template-columns: 9rem minmax(0, 1fr);
+      }
+    }
+
+    dt {
+      color: var(--muted);
+      font-size: 0.9375rem;
+    }
+
+    dd {
+      margin: 0;
+    }
+
+    .contact {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
     .contact li {
       display: flex;
       flex-wrap: wrap;
@@ -201,8 +293,15 @@
       gap: 0.25rem 1rem;
       padding-block: 0.6rem;
     }
-    .contact li:first-child { padding-top: 0; }
-    .contact small { color: var(--muted); font-size: 0.875rem; }
+
+    .contact li:first-child {
+      padding-top: 0;
+    }
+
+    .contact small {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
 
     footer {
       padding-block: 2rem 3rem;
@@ -212,6 +311,7 @@
     }
   </style>
 </head>
+
 <body>
   <main class="wrap">
 
@@ -223,40 +323,37 @@
         <ul class="links">
           <li><a href="http://lattes.cnpq.br/0472632660041371">Currículo Lattes</a></li>
           <li><a href="https://www.linkedin.com/in/rudivan-barbosa/">LinkedIn</a></li>
-          <li><a href="mailto:rudivanbarbosa@gmail.com">E-mail</a></li>
         </ul>
       </div>
 
       <figure>
-        <svg viewBox="0 0 440 400" role="img" aria-label="Curvas de nível elípticas em torno de um ponto de mínimo, com uma trajetória em zigue-zague que converge para esse ponto.">
+        <svg viewBox="0 0 440 400" role="img"
+          aria-label="Curvas de nível elípticas em torno de um ponto de mínimo, com uma trajetória em zigue-zague que converge para esse ponto.">
           <g transform="translate(230 200) rotate(-28)">
-            <ellipse class="contour" rx="19.8" ry="12"/>
-            <ellipse class="contour" rx="47.9" ry="29"/>
-            <ellipse class="contour" rx="79.2" ry="48"/>
-            <ellipse class="contour" rx="115.5" ry="70"/>
-            <ellipse class="contour" rx="156.8" ry="95"/>
-            <ellipse class="contour" rx="199.7" ry="121"/>
+            <ellipse class="contour" rx="19.8" ry="12" />
+            <ellipse class="contour" rx="47.9" ry="29" />
+            <ellipse class="contour" rx="79.2" ry="48" />
+            <ellipse class="contour" rx="115.5" ry="70" />
+            <ellipse class="contour" rx="156.8" ry="95" />
+            <ellipse class="contour" rx="199.7" ry="121" />
             <polyline class="path" pathLength="1"
-              points="-150,70 -77.3,-22.4 -30.7,14.3 -15.8,-4.6 -6.3,2.9 -3.2,-0.9 -1.3,0.6 -0.7,-0.2 -0.3,0.1 0,0"/>
-            <circle class="dot" style="--d:0.3s"  cx="-150"  cy="70"   r="3.4"/>
-            <circle class="dot" style="--d:1.57s" cx="-77.3" cy="-22.4" r="3.4"/>
-            <circle class="dot" style="--d:2.21s" cx="-30.7" cy="14.3"  r="3.4"/>
-            <circle class="dot" style="--d:2.46s" cx="-15.8" cy="-4.6"  r="3"/>
-            <circle class="dot" style="--d:2.59s" cx="-6.3"  cy="2.9"   r="2.6"/>
-            <circle class="min" r="5"/>
+              points="-150,70 -77.3,-22.4 -30.7,14.3 -15.8,-4.6 -6.3,2.9 -3.2,-0.9 -1.3,0.6 -0.7,-0.2 -0.3,0.1 0,0" />
+            <circle class="dot" style="--d:0.3s" cx="-150" cy="70" r="3.4" />
+            <circle class="dot" style="--d:1.57s" cx="-77.3" cy="-22.4" r="3.4" />
+            <circle class="dot" style="--d:2.21s" cx="-30.7" cy="14.3" r="3.4" />
+            <circle class="dot" style="--d:2.46s" cx="-15.8" cy="-4.6" r="3" />
+            <circle class="dot" style="--d:2.59s" cx="-6.3" cy="2.9" r="2.6" />
+            <circle class="min" r="5" />
           </g>
           <text class="minlabel" x="243" y="184">x*</text>
         </svg>
-        <figcaption>
-          Curvas de nível de f(x, y) = x²/1,65² + y², cujo minimizador é a origem, e iterações do método do gradiente com busca linear exata a partir de (−150, 70). A figura está girada em 28°; as coordenadas citadas são anteriores à rotação.
-        </figcaption>
       </figure>
     </header>
 
     <section>
       <h2>Sobre</h2>
       <div class="body">
-        <p>Sou matemático e faço doutorado em Ciência da Computação. Trabalho com otimização e implemento meus métodos em C++.</p>
+        <p>Tentando entender o mundo através da Ciência.</p>
         <!-- Edite este texto: acrescente tema da tese, orientador, instituição e projetos em andamento. -->
       </div>
     </section>
@@ -266,15 +363,16 @@
       <dl class="body">
         <div class="row">
           <dt>Formação</dt>
-          <dd>Matemática, com doutorado em Ciência da Computação em andamento.</dd>
+          <dd>Bacharel em Matemática pela Universidade Federal do Espírito Santo.</dd>
+          <dd>Mestra em Otimização pela Universidade de São Paulo.</dd>
         </div>
         <div class="row">
           <dt>Foco</dt>
-          <dd>Otimização: modelagem matemática e algoritmos.</dd>
+          <dd>Modelagem matemática, otimização e métodos heurísticos.</dd>
         </div>
         <div class="row">
-          <dt>Programação</dt>
-          <dd>C++.</dd>
+          <dt>Linguagem de Programação</dt>
+          <dd>C++ e Python.</dd>
         </div>
         <!-- Para acrescentar uma linha, copie um bloco "row" e altere o texto. -->
       </dl>
@@ -283,8 +381,6 @@
     <section>
       <h2>Contato</h2>
       <ul class="contact body">
-        <li><a href="http://lattes.cnpq.br/0472632660041371">Currículo Lattes</a> <small>lattes.cnpq.br</small></li>
-        <li><a href="https://www.linkedin.com/in/rudivan-barbosa/">LinkedIn</a> <small>linkedin.com/in/rudivan-barbosa</small></li>
         <li><a href="mailto:rudivanbarbosa@gmail.com">rudivanbarbosa@gmail.com</a></li>
       </ul>
     </section>
@@ -295,4 +391,5 @@
     <div class="wrap">© 2026 Rudivan Barbosa</div>
   </footer>
 </body>
+
 </html>
