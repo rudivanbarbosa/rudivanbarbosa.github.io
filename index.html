@@ -325,7 +325,8 @@
 
     .tabs {
       display: flex;
-      gap: 1.75rem;
+      flex-wrap: wrap;
+      gap: 0 1.75rem;
     }
 
     .tabs a {
@@ -402,11 +403,6 @@
         top: 1.5rem;
         align-self: start;
       }
-
-      /* Bloco sem logo: o texto continua na coluna da direita */
-      .job>dl:first-child {
-        grid-column: 2;
-      }
     }
 
     .side a {
@@ -475,9 +471,11 @@
     alt="Rede com quatro facilidades e os pontos de demanda atendidos por cada uma.">
   <nav class="nav" aria-label="Seções">
     <div class="wrap">
-      <a class="brand" href="#perfil">Rudivan Barbosa</a>
+      <a class="brand" href="#inicio">Rudivan Barbosa</a>
       <div class="tabs">
-        <a href="#perfil" data-tab="perfil">Perfil</a>
+        <a href="#inicio" data-tab="inicio">Página inicial</a>
+        <a href="#academico" data-tab="academico">Perfil acadêmico</a>
+        <a href="#profissional" data-tab="profissional">Perfil profissional</a>
         <a href="#artigos" data-tab="artigos">Artigos publicados</a>
       </div>
     </div>
@@ -485,7 +483,7 @@
 
   <main class="wrap">
 
-    <div class="tab" id="perfil">
+    <div class="tab" id="inicio">
 
       <header class="hero">
         <div>
@@ -530,6 +528,15 @@
         </div>
       </section>
 
+      <section>
+        <h2>Contato</h2>
+        <ul class="contact body">
+          <li><a href="mailto:rudivanbarbosa@gmail.com">rudivanbarbosa@gmail.com</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="tab" id="academico" hidden>
       <section class="work">
         <h2>Acadêmico</h2>
         <div class="job">
@@ -579,31 +586,16 @@
               <dt>Orientador</dt>
               <dd><a href="http://lattes.cnpq.br/7663676652054207">Gilberto de Miranda Junior</a></dd>
             </div>
-          </dl>
-        </div>
-
-        <div class="job">
-          <dl class="body">
             <div class="row">
-              <dt>Foco</dt>
-              <dd>Modelagem matemática, otimização e métodos heurísticos.</dd>
-            </div>
-            <div class="row">
-              <dt>Problemas de interesse</dt>
-              <dd>
-                Localização-Alocação de facilidades<br>
-                Dimensionamento e sequenciamento de lotes de produção<br>
-                Roteamento de veículos
-              </dd>
-            </div>
-            <div class="row">
-              <dt>Linguagem de Programação</dt>
-              <dd>C/C++ e Python.</dd>
+              <dt>Local</dt>
+              <dd>São Mateus, ES.</dd>
             </div>
           </dl>
         </div>
       </section>
+    </div>
 
+    <div class="tab" id="profissional" hidden>
       <section class="work">
         <h2>Atuação profissional</h2>
         <div class="job">
@@ -664,13 +656,6 @@
           </dl>
         </div>
       </section>
-
-      <section>
-        <h2>Contato</h2>
-        <ul class="contact body">
-          <li><a href="mailto:rudivanbarbosa@gmail.com">rudivanbarbosa@gmail.com</a></li>
-        </ul>
-      </section>
     </div>
 
     <div class="tab" id="artigos" hidden>
@@ -722,8 +707,8 @@
       var tabs = document.querySelectorAll('.tab');
       var links = document.querySelectorAll('[data-tab]');
       function show() {
-        var id = location.hash.slice(1) || 'perfil';
-        if (!document.getElementById(id) || !document.getElementById(id).classList.contains('tab')) id = 'perfil';
+        var id = location.hash.slice(1) || 'inicio';
+        if (!document.getElementById(id) || !document.getElementById(id).classList.contains('tab')) id = 'inicio';
         tabs.forEach(function (t) { t.hidden = t.id !== id; });
         links.forEach(function (a) {
           if (a.dataset.tab === id) a.setAttribute('aria-current', 'page');
