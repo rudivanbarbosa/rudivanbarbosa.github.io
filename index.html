@@ -303,6 +303,71 @@
       font-size: 0.875rem;
     }
 
+    /* Navegação */
+    .nav {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 2.5rem;
+    }
+
+    .brand {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      padding-block: 1.25rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .tabs a {
+      display: block;
+      padding-block: 1.25rem 0.9rem;
+      border-bottom: 4px solid transparent;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .tabs a:hover {
+      color: var(--ink);
+    }
+
+    .tabs a[aria-current="page"] {
+      color: var(--ink);
+      border-bottom-color: var(--contour);
+    }
+
+    .tab[hidden] {
+      display: none;
+    }
+
+    .pubs {
+      margin: 0;
+      padding: 0 0 0 1.5rem;
+    }
+
+    .pubs li {
+      padding-block: 0.9rem;
+      padding-left: 0.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pubs li:first-child {
+      padding-top: 0;
+    }
+
+    .pubs li:last-child {
+      border-bottom: 0;
+    }
+
     footer {
       padding-block: 2rem 3rem;
       border-top: 1px solid var(--line);
@@ -313,7 +378,19 @@
 </head>
 
 <body>
+  <nav class="nav" aria-label="Seções">
+    <div class="wrap">
+      <a class="brand" href="#perfil">Rudivan Barbosa</a>
+      <div class="tabs">
+        <a href="#perfil" data-tab="perfil">Perfil</a>
+        <a href="#artigos" data-tab="artigos">Artigos publicados</a>
+      </div>
+    </div>
+  </nav>
+
   <main class="wrap">
+
+    <div class="tab" id="perfil">
 
     <header class="hero">
       <div>
@@ -386,12 +463,64 @@
         <li><a href="mailto:rudivanbarbosa@gmail.com">rudivanbarbosa@gmail.com</a></li>
       </ul>
     </section>
+    </div>
+
+    <div class="tab" id="artigos" hidden>
+      <section>
+        <h2>Artigos publicados</h2>
+        <ol class="pubs body">
+          <li>
+            <a href="https://doi.org/10.14488/enegep2024_tn_wpg_413_2029_47921">doi</a>
+            RIBEIRO, LUCAS TAYRONE MOREIRA; <strong>BARBOSA, RUDIVAN PAIXÃO</strong>; JÚNIOR, ALOISIO DE CASTRO GOMES; GOMES, HELTON CRISTIANO; SILVA, ANDRÉ LUÍS.
+            Dimensionamento e sequenciamento de lotes da produção: insights de uma revisão sistemática da literatura e análise bibliométrica.
+            In: ENEGEP 2024 Encontro Nacional de Engenharia de Produção, 2024, Porto Alegre/RS, Brasil. São José dos Campos, SP: ABEPRO, 2024. v. 44.
+          </li>
+          <li>
+            <a href="https://doi.org/10.5220/0011852200003467">doi</a>
+            <strong>BARBOSA, RUDIVAN</strong>; SOUZA, MARCONE; MIRANDA JUNIOR, GILBERTO.
+            Mammography Unit Location: Reconciling Maximum Coverage and Budgetary Constraints.
+            In: 25th International Conference on Enterprise Information Systems, 2023, Prague. Proceedings of the 25th International Conference on Enterprise Information Systems, 2023. v. 1. p. 187-194.
+          </li>
+          <li>
+            <a href="https://doi.org/10.59254/sbpo-2023-174767">doi</a>
+            <strong>BARBOSA, R. P.</strong>; RIBEIRO, L. T. M.
+            Um novo modelo para o problema de dimensionamento e sequenciamento de lotes com aceitação de pedidos.
+            In: LV Simpósio Brasileiro de Pesquisa Operacional, 2023, São José dos Campos, SP. LV Simpósio Brasileiro de Pesquisa Operacional. Rio de Janeiro, RJ: SOBRAPO, 2023. v. 55. p. 158391.
+          </li>
+          <li>
+            <a href="https://doi.org/10.59254/sbpo-2019-106930">doi</a>
+            <strong>BARBOSA, R. P.</strong>; OLIVEIRA, W. A.; SANTOS, M. O.
+            Um modelo para o problema de dimensionamento e sequenciamento de lotes com aceitação de pedidos.
+            In: LI Simpósio Brasileiro de Pesquisa Operacional, 2019, Limeira, SP. LI Simpósio Brasileiro de Pesquisa Operacional. Rio de Janeiro, RJ: SOBRAPO, 2019. v. 51. p. 106911.
+          </li>
+        </ol>
+      </section>
+    </div>
 
   </main>
 
   <footer>
     <div class="wrap">© 2026 Rudivan Barbosa</div>
   </footer>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.tab');
+      var links = document.querySelectorAll('[data-tab]');
+      function show() {
+        var id = location.hash.slice(1) || 'perfil';
+        if (!document.getElementById(id) || !document.getElementById(id).classList.contains('tab')) id = 'perfil';
+        tabs.forEach(function (t) { t.hidden = t.id !== id; });
+        links.forEach(function (a) {
+          if (a.dataset.tab === id) a.setAttribute('aria-current', 'page');
+          else a.removeAttribute('aria-current');
+        });
+        window.scrollTo(0, 0);
+      }
+      window.addEventListener('hashchange', show);
+      show();
+    })();
+  </script>
 </body>
 
 </html>
