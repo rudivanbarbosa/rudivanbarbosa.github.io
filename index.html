@@ -402,6 +402,11 @@
         top: 1.5rem;
         align-self: start;
       }
+
+      /* Bloco sem logo: o texto continua na coluna da direita */
+      .job>dl:first-child {
+        grid-column: 2;
+      }
     }
 
     .side a {
@@ -525,34 +530,78 @@
         </div>
       </section>
 
-      <section>
+      <section class="work">
         <h2>Acadêmico</h2>
-        <dl class="body">
-          <div class="row">
-            <dt>Formação</dt>
-            <dd>
-              Bacharel em Matemática pela Universidade Federal do Espírito Santo.<br>
-              Mestre em Otimização pela Universidade de São Paulo.
-            </dd>
+        <div class="job">
+          <div class="side">
+            <a href="https://www.icmc.usp.br/"><img class="logo" src="img/icmc-usp-logo.svg"
+                alt="ICMC - USP São Carlos"></a>
           </div>
-          <div class="row">
-            <dt>Foco</dt>
-            <dd>Modelagem matemática, otimização e métodos heurísticos.</dd>
+          <dl class="body">
+            <div class="row">
+              <dt>Mestre em Otimização</dt>
+              <dd>
+                <a href="https://www.icmc.usp.br/">Instituto de Ciências Matemáticas e de Computação (ICMC)</a>,
+                Universidade de São Paulo.
+              </dd>
+            </div>
+            <div class="row">
+              <dt>Dissertação</dt>
+              <dd>Abordagens de solução para o problema de dimensionamento e sequenciamento de lotes com aceitação de
+                pedidos</dd>
+            </div>
+            <div class="row">
+              <dt>Orientadora</dt>
+              <dd><a href="http://lattes.cnpq.br/0756373063566786">Maristela Oliveira dos Santos</a></dd>
+            </div>
+            <div class="row">
+              <dt>Local</dt>
+              <dd>São Carlos, SP.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="job">
+          <div class="side">
+            <a href="https://www.ufes.br/"><img class="logo logo-ufes" src="img/ufes-logo.svg"
+                alt="UFES - Universidade Federal do Espírito Santo"></a>
           </div>
-          <div class="row">
-            <dt>Problemas de interesse</dt>
-            <dd>
-              Localização-Alocação de facilidades<br>
-              Dimensionamento e sequenciamento de lotes de produção<br>
-              Roteamento de veículos
-            </dd>
-          </div>
-          <div class="row">
-            <dt>Linguagem de Programação</dt>
-            <dd>C/C++ e Python.</dd>
-          </div>
-          <!-- Para acrescentar uma linha, copie um bloco "row" e altere o texto. -->
-        </dl>
+          <dl class="body">
+            <div class="row">
+              <dt>Bacharel em Matemática</dt>
+              <dd><a href="https://www.ufes.br/">Universidade Federal do Espírito Santo</a>.</dd>
+            </div>
+            <div class="row">
+              <dt>TCC</dt>
+              <dd>Projeto ótimo de rede semi-mecanizada</dd>
+            </div>
+            <div class="row">
+              <dt>Orientador</dt>
+              <dd><a href="http://lattes.cnpq.br/7663676652054207">Gilberto de Miranda Junior</a></dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="job">
+          <dl class="body">
+            <div class="row">
+              <dt>Foco</dt>
+              <dd>Modelagem matemática, otimização e métodos heurísticos.</dd>
+            </div>
+            <div class="row">
+              <dt>Problemas de interesse</dt>
+              <dd>
+                Localização-Alocação de facilidades<br>
+                Dimensionamento e sequenciamento de lotes de produção<br>
+                Roteamento de veículos
+              </dd>
+            </div>
+            <div class="row">
+              <dt>Linguagem de Programação</dt>
+              <dd>C/C++ e Python.</dd>
+            </div>
+          </dl>
+        </div>
       </section>
 
       <section class="work">
