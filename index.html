@@ -368,6 +368,32 @@
       border-bottom: 0;
     }
 
+    /* Imagens laterais (só em telas largas) */
+    .side {
+      display: none;
+    }
+
+    @media (min-width: 1400px) {
+      .side {
+        display: block;
+        position: fixed;
+        top: 8rem;
+        width: min(20rem, calc((100vw - 64rem) / 2 - 2.5rem));
+        height: 22rem;
+        object-fit: cover;
+        border-radius: 8px;
+        opacity: 0.9;
+      }
+
+      .side-left {
+        left: 1.5rem;
+      }
+
+      .side-right {
+        right: 1.5rem;
+      }
+    }
+
     footer {
       padding-block: 2rem 3rem;
       border-top: 1px solid var(--line);
@@ -378,6 +404,10 @@
 </head>
 
 <body>
+  <img class="side side-left" src="img/vrp-rotas.svg"
+    alt="Rotas de veículos partindo de um depósito central, cada rota em uma cor.">
+  <img class="side side-right" src="img/localizacao-alocacao.svg"
+    alt="Rede com quatro facilidades e os pontos de demanda atendidos por cada uma.">
   <nav class="nav" aria-label="Seções">
     <div class="wrap">
       <a class="brand" href="#perfil">Rudivan Barbosa</a>
@@ -448,6 +478,14 @@
           <div class="row">
             <dt>Foco</dt>
             <dd>Modelagem matemática, otimização e métodos heurísticos.</dd>
+          </div>
+          <div class="row">
+            <dt>Problemas de interesse</dt>
+            <dd>
+              Localização-Alocação de facilidades<br>
+              Dimensionamento e sequenciamento da produção<br>
+              Roteamento de veículos
+            </dd>
           </div>
           <div class="row">
             <dt>Linguagem de Programação</dt>
