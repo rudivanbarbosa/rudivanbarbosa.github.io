@@ -368,6 +368,52 @@
       border-bottom: 0;
     }
 
+    /* Atuação profissional: logos na coluna esquerda, alinhados a cada cargo */
+    section.work {
+      display: block;
+    }
+
+    .job {
+      display: grid;
+      gap: 1rem 3rem;
+    }
+
+    .job+.job {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (min-width: 820px) {
+      .job {
+        grid-template-columns: 12rem minmax(0, 1fr);
+      }
+    }
+
+    .side h2 {
+      margin-bottom: 1.25rem;
+    }
+
+    .side a {
+      display: block;
+    }
+
+    .logo {
+      display: block;
+      width: 100%;
+      max-width: 10rem;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .side a+.logo {
+      margin-top: 0.5rem;
+    }
+
+    .logo-ufes {
+      max-width: 7rem;
+    }
+
     /* Imagens laterais (só em telas largas) */
     .side {
       display: none;
@@ -483,7 +529,7 @@
             <dt>Problemas de interesse</dt>
             <dd>
               Localização-Alocação de facilidades<br>
-              Dimensionamento e sequenciamento da produção<br>
+              Dimensionamento e sequenciamento de lotes de produção<br>
               Roteamento de veículos
             </dd>
           </div>
@@ -495,51 +541,66 @@
         </dl>
       </section>
 
-      <section>
-        <h2>Atuação profissional</h2>
-        <dl class="body">
-          <div class="row">
-            <dt>Decision Science Analyst</dt>
-            <dd>
-              Atuação na criação e no aprimoramento de modelos matemáticos de otimização para empresas siderúrgicas,
-              com foco no planejamento da produção de aço. Desenvolvimento da interface que permite aos usuários
-              operarem a ferramenta e suporte técnico aos clientes. A ferramenta, denominada Quandec, é utilizada pelos
-              clientes para otimizar o plano de produção e simular cenários.
-            </dd>
+      <section class="work">
+        <div class="job">
+          <div class="side">
+            <h2>Atuação profissional</h2>
+            <a href="https://pt.cassotis.com/"><img class="logo" src="img/cassotis-logo.svg" alt="Cassotis"></a>
+            <img class="logo" src="img/cassotis-slogan.svg" alt="Source of smart decisions">
           </div>
-          <div class="row">
-            <dt>Empresa</dt>
-            <dd><a href="https://pt.cassotis.com/">Cassotis consulting</a>.</dd>
+          <dl class="body">
+            <div class="row">
+              <dt>Decision Science Analyst</dt>
+              <dd>
+                Atuação na criação e no aprimoramento de modelos matemáticos de otimização para empresas siderúrgicas,
+                com foco no planejamento da produção de aço. Desenvolvimento da interface que permite aos usuários
+                operarem a ferramenta e suporte técnico aos clientes. A ferramenta, denominada Quandec, é utilizada
+                pelos
+                clientes para otimizar o plano de produção e simular cenários.
+              </dd>
+            </div>
+            <div class="row">
+              <dt>Empresa</dt>
+              <dd><a href="https://pt.cassotis.com/">Cassotis consulting</a></dd>
+            </div>
+            <div class="row">
+              <dt>Período</dt>
+              <dd>04/2024 até o momento.</dd>
+            </div>
+            <div class="row">
+              <dt>Local</dt>
+              <dd>Belo Horizonte, MG.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="job">
+          <div class="side">
+            <a href="https://saomateus.ufes.br/"><img class="logo logo-ufes" src="img/ufes-logo.svg"
+                alt="UFES - Universidade Federal do Espírito Santo"></a>
           </div>
-          <div class="row">
-            <dt>Período</dt>
-            <dd>04/2024 até o momento.</dd>
-          </div>
-          <div class="row">
-            <dt>Local</dt>
-            <dd>Belo Horizonte, MG.</dd>
-          </div>
-          <div class="row">
-            <dt>Professor substituto no Departamento de Matemática Aplicada</dt>
-            <dd>
-              Disciplinas ministradas: Álgebra Linear, Cálculo Diferencial e Integral, Geometria Analítica e
-              Matemática Básica.
-            </dd>
-          </div>
-          <div class="row">
-            <dt>Instituição</dt>
-            <dd><a href="https://saomateus.ufes.br/">Universidade Federal do Espírito Santo</a>.</dd>
-          </div>
-          <div class="row">
-            <dt>Período</dt>
-            <dd>09/2020 a 10/2021.</dd>
-          </div>
-          <div class="row">
-            <dt>Local</dt>
-            <dd>São Mateus, ES.</dd>
-          </div>
-          <!-- Para acrescentar uma linha, copie um bloco "row" e altere o texto. -->
-        </dl>
+          <dl class="body">
+            <div class="row">
+              <dt>Professor substituto no Departamento de Matemática Aplicada</dt>
+              <dd>
+                Disciplinas ministradas: Álgebra Linear, Cálculo Diferencial e Integral, Geometria Analítica e
+                Matemática Básica.
+              </dd>
+            </div>
+            <div class="row">
+              <dt>Instituição</dt>
+              <dd><a href="https://saomateus.ufes.br/">Universidade Federal do Espírito Santo</a></dd>
+            </div>
+            <div class="row">
+              <dt>Período</dt>
+              <dd>09/2020 a 10/2021.</dd>
+            </div>
+            <div class="row">
+              <dt>Local</dt>
+              <dd>São Mateus, ES.</dd>
+            </div>
+          </dl>
+        </div>
       </section>
 
       <section>

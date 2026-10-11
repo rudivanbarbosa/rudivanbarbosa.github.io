@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 270" role="img" aria-label="UFES - Universidade Federal do Espírito Santo"><style>:root{--ink:#101828;--water:#1f7ae0;--yel:#e8a800;--red:#c8202a}@media (prefers-color-scheme:dark){:root{--ink:#E8ECF4;--water:#4aa3ff;--yel:#ffd24a;--red:#ff5d62}}</style>
+<defs><path id="top" d="M27 100 A73 73 0 0 1 173 100"/><path id="bot" d="M11 100 A89 89 0 0 0 189 100"/></defs>
+<circle cx="100" cy="100" r="95" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+<circle cx="100" cy="100" r="66" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
+<g font-family="Georgia,'Times New Roman',serif" font-size="11" fill="var(--ink)">
+<text><textPath href="#top" startOffset="50%" text-anchor="middle" textLength="215" lengthAdjust="spacing">UNIVERSIDADE FEDERAL DO ESPÍRITO SANTO</textPath></text>
+<text><textPath href="#bot" startOffset="50%" text-anchor="middle" textLength="150" lengthAdjust="spacing">DOCETE OMNES GENTES</textPath></text></g>
+<g fill="var(--red)">
+<path d="M100 40 C78 36 62 48 66 62 C72 52 84 50 92 56 Z"/><path d="M100 40 C122 36 138 48 134 62 C128 52 116 50 108 56 Z"/>
+<path d="M66 78 C50 74 42 88 48 100 C52 92 60 92 68 96 Z"/><path d="M134 78 C150 74 158 88 152 100 C148 92 140 92 132 96 Z"/></g>
+<rect x="88" y="52" width="24" height="20" rx="6" fill="var(--ink)" opacity="0.55"/>
+<path d="M72 76 H128 V112 Q128 138 100 150 Q72 138 72 112 Z" fill="var(--yel)" stroke="var(--ink)" stroke-width="1.5"/>
+<polygon points="100.0,86.0 102.0,91.2 107.6,91.5 103.2,95.1 104.7,100.5 100.0,97.4 95.3,100.5 96.8,95.1 92.4,91.5 98.0,91.2" fill="var(--red)"/><polygon points="87.0,110.0 89.0,115.2 94.6,115.5 90.2,119.1 91.7,124.5 87.0,121.4 82.3,124.5 83.8,119.1 79.4,115.5 85.0,115.2" fill="var(--red)"/><polygon points="113.0,110.0 115.0,115.2 120.6,115.5 116.2,119.1 117.7,124.5 113.0,121.4 108.3,124.5 109.8,119.1 105.4,115.5 111.0,115.2" fill="var(--red)"/>
+<text x="100" y="258" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="84" fill="var(--ink)" text-anchor="middle" textLength="190" lengthAdjust="spacingAndGlyphs">UFES</text></svg>
