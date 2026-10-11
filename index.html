@@ -388,6 +388,13 @@
       .job {
         grid-template-columns: 12rem minmax(0, 1fr);
       }
+
+      /* Logos acompanham a rolagem enquanto a descrição do cargo está na tela */
+      .side {
+        position: sticky;
+        top: 1.5rem;
+        align-self: start;
+      }
     }
 
     .side h2 {
@@ -415,12 +422,12 @@
     }
 
     /* Imagens laterais (só em telas largas) */
-    .side {
+    .margin-img {
       display: none;
     }
 
     @media (min-width: 1400px) {
-      .side {
+      .margin-img {
         display: block;
         position: fixed;
         top: 8rem;
@@ -431,11 +438,11 @@
         opacity: 0.9;
       }
 
-      .side-left {
+      .margin-left {
         left: 1.5rem;
       }
 
-      .side-right {
+      .margin-right {
         right: 1.5rem;
       }
     }
@@ -450,9 +457,9 @@
 </head>
 
 <body>
-  <img class="side side-left" src="img/vrp-rotas.svg"
+  <img class="margin-img margin-left" src="img/vrp-rotas.svg"
     alt="Rotas de veículos partindo de um depósito central, cada rota em uma cor.">
-  <img class="side side-right" src="img/localizacao-alocacao.svg"
+  <img class="margin-img margin-right" src="img/localizacao-alocacao.svg"
     alt="Rede com quatro facilidades e os pontos de demanda atendidos por cada uma.">
   <nav class="nav" aria-label="Seções">
     <div class="wrap">
