@@ -14,6 +14,7 @@
       --ink: #101828;
       --muted: #566174;
       --line: #D3DAE4;
+      --chip: #E3E8EF;
       --contour: #B4BFD0;
       --accent: #2438C9;
       --min: #D6336C;
@@ -27,6 +28,7 @@
         --ink: #E8ECF4;
         --muted: #9AA6BA;
         --line: #252F47;
+        --chip: #1A2236;
         --contour: #2B3753;
         --accent: #8E9CFF;
         --min: #FF7AA8;
@@ -347,26 +349,51 @@
       margin: 0;
     }
 
-    /* Habilidades: tópicos com subtópicos indentados */
-    .skills,
-    .skills ul {
+    /* Competências técnicas: grupos em duas colunas, itens como chips */
+    .skills {
+      display: grid;
+      gap: 2rem 3rem;
+      max-width: 46rem;
+    }
+
+    @media (min-width: 600px) {
+      .skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .skill-wide {
+        grid-column: 1 / -1;
+      }
+    }
+
+    .skills h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
-    .skills>li+li {
-      margin-top: 1.25rem;
+    .chips li {
+      padding: 0.35rem 0.8rem;
+      border-radius: 6px;
+      background: var(--chip);
+      font-size: 0.9375rem;
+      line-height: 1.4;
     }
 
-    .skills .topic {
-      display: block;
-      font-weight: 600;
-    }
-
-    .skills ul {
-      margin-top: 0.15rem;
-      padding-left: 1.75rem;
+    .chips li.main {
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 500;
     }
 
     .contact {
@@ -659,47 +686,55 @@
       </header>
 
       <section>
-        <h2>Principais habilidades</h2>
-        <ul class="skills body" role="list">
-          <li>
-            <span class="topic">Modelagem matemática</span>
-            <ul role="list">
-              <li>Programação linear</li>
+        <h2>Competências técnicas</h2>
+        <div class="skills">
+          <div class="skill-group">
+            <h3>Classes de problemas</h3>
+            <ul class="chips" role="list">
+              <li class="main">Programação linear</li>
               <li>Programação inteira</li>
               <li>Programação não linear</li>
-              <li>Programação dinâmica</li>
               <li>Otimização multiobjetivo</li>
             </ul>
-          </li>
-          <li>
-            <span class="topic">Linguagem de programação</span>
-            <ul role="list">
-              <li>C</li>
-              <li>C++</li>
-              <li>Python</li>
+          </div>
+          <div class="skill-group">
+            <h3>Métodos de solução</h3>
+            <ul class="chips" role="list">
+              <li>Programação dinâmica</li>
+              <li>Dantzig-Wolfe/Geração de colunas</li>
             </ul>
-          </li>
-          <li>
-            <span class="topic">Meta-heurísticas</span>
-            <ul role="list">
-              <li>Genetic Algorithm</li>
+          </div>
+          <div class="skill-group">
+            <h3>Meta-heurísticas</h3>
+            <ul class="chips" role="list">
+              <li class="main">Genetic Algorithm</li>
               <li>Greedy Randomized Adaptive Search Procedure</li>
               <li>Variable Neighborhood Search</li>
               <li>Iterated Local Search</li>
               <li>Tabu Search</li>
             </ul>
-          </li>
-          <li>
-            <span class="topic">Solvers</span>
-            <ul role="list">
-              <li>Cplex</li>
-              <li>Gurobi</li>
-              <li>Conopt</li>
-              <li>Knitro</li>
-              <li>Hexaly</li>
+          </div>
+          <div class="skill-group">
+            <h3>Linguagens de programação</h3>
+            <ul class="chips" role="list">
+              <li class="main">C++</li>
+              <li>C</li>
+              <li>Python</li>
             </ul>
-          </li>
-        </ul>
+          </div>
+          <div class="skill-group skill-wide">
+            <h3>Solvers e modelagem</h3>
+            <ul class="chips" role="list">
+              <li class="main">Gurobi</li>
+              <li>CPLEX</li>
+              <li>CONOPT</li>
+              <li>Knitro</li>
+              <li>Hexaly (ex-LocalSolver)</li>
+              <li>AMPL</li>
+              <li>IBM Concert Technology</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section>
