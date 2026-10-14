@@ -5,13 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nil satis nisi optimum</title>
-  <meta name="description" content="Página de Rudivan Barbosa">
+  <meta name="description" content="Página de Rudivan Barbosa" data-en-content="Rudivan Barbosa's personal page">
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%232438C9'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23D6336C'/%3E%3C/svg%3E">
   <script>
     try {
       var t = localStorage.getItem('theme');
       if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      if (localStorage.getItem('lang') === 'en') document.documentElement.dataset.lang = 'en';
     } catch (e) { }
   </script>
   <style>
@@ -464,8 +465,68 @@
       border-bottom-color: var(--contour);
     }
 
-    .theme-toggle {
+    .nav-tools {
+      display: flex;
+      gap: 0.5rem;
       margin-left: auto;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      height: 2.25rem;
+      padding: 0 0.7rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    .lang-toggle:hover {
+      color: var(--ink);
+    }
+
+    .flag {
+      flex: none;
+      width: 1.25rem;
+      height: 0.875rem;
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px rgba(128, 128, 128, 0.35);
+    }
+
+    .lang-toggle .flag-us,
+    .lang-toggle .code-en,
+    :root[data-lang="en"] .lang-toggle .flag-br,
+    :root[data-lang="en"] .lang-toggle .code-br {
+      display: none;
+    }
+
+    :root[data-lang="en"] .lang-toggle .flag-us {
+      display: block;
+    }
+
+    :root[data-lang="en"] .lang-toggle .code-en {
+      display: inline;
+    }
+
+    .lang-note {
+      margin-left: 0.35rem;
+      color: var(--muted);
+      font-size: 0.875rem;
+      white-space: nowrap;
+    }
+
+    .lang-note:empty {
+      display: none;
+    }
+
+    .theme-toggle {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -676,19 +737,45 @@
 
 <body>
   <img class="margin-img margin-left" src="img/vrp-rotas.svg"
-    alt="Rotas de veículos partindo de um depósito central, cada rota em uma cor.">
+    alt="Rotas de veículos partindo de um depósito central, cada rota em uma cor."
+    data-en-alt="Vehicle routes departing from a central depot, each route in a different color.">
   <img class="margin-img margin-right" src="img/localizacao-alocacao.svg"
-    alt="Rede com quatro facilidades e os pontos de demanda atendidos por cada uma.">
-  <nav class="nav" aria-label="Seções">
+    alt="Rede com quatro facilidades e os pontos de demanda atendidos por cada uma."
+    data-en-alt="Network with four facilities and the demand points served by each one.">
+  <nav class="nav" aria-label="Seções" data-en-aria-label="Sections">
     <div class="wrap">
       <div class="tabs">
-        <a href="#inicio" data-tab="inicio">Página inicial</a>
-        <a href="#academico" data-tab="academico">Perfil acadêmico</a>
-        <a href="#profissional" data-tab="profissional">Perfil profissional</a>
-        <a href="#artigos" data-tab="artigos">Artigos publicados</a>
+        <a href="#inicio" data-tab="inicio" data-en="Home">Página inicial</a>
+        <a href="#academico" data-tab="academico" data-en="Academic profile">Perfil acadêmico</a>
+        <a href="#profissional" data-tab="profissional" data-en="Professional profile">Perfil profissional</a>
+        <a href="#artigos" data-tab="artigos" data-en="Published papers">Artigos publicados</a>
       </div>
+      <div class="nav-tools">
+      <button class="lang-toggle" type="button" aria-label="Mudar idioma para inglês" title="Mudar idioma"
+        data-en-aria-label="Switch language to Portuguese" data-en-title="Switch language">
+        <svg class="flag flag-br" viewBox="0 0 20 14" aria-hidden="true">
+          <rect width="20" height="14" fill="#009B3A" />
+          <path d="M10 1.6 18 7l-8 5.4L2 7z" fill="#FEDF00" />
+          <circle cx="10" cy="7" r="3.1" fill="#002776" />
+          <path d="M6.95 6.3c2.5-.6 4.7-.2 6.2 1" fill="none" stroke="#fff" stroke-width=".55" />
+        </svg>
+        <svg class="flag flag-us" viewBox="0 0 20 14" aria-hidden="true">
+          <rect width="20" height="14" fill="#fff" />
+          <path fill="#B22234"
+            d="M0 0h20v1.08H0zM0 2.15h20v1.08H0zM0 4.31h20v1.08H0zM0 6.46h20v1.08H0zM0 8.62h20v1.08H0zM0 10.77h20v1.08H0zM0 12.92h20V14H0z" />
+          <rect width="8.4" height="7.54" fill="#3C3B6E" />
+          <g fill="#fff">
+            <circle cx="1.2" cy="1.1" r=".32" /><circle cx="2.9" cy="1.1" r=".32" /><circle cx="4.6" cy="1.1" r=".32" /><circle cx="6.3" cy="1.1" r=".32" />
+            <circle cx="2.05" cy="2.5" r=".32" /><circle cx="3.75" cy="2.5" r=".32" /><circle cx="5.45" cy="2.5" r=".32" /><circle cx="7.15" cy="2.5" r=".32" />
+            <circle cx="1.2" cy="3.9" r=".32" /><circle cx="2.9" cy="3.9" r=".32" /><circle cx="4.6" cy="3.9" r=".32" /><circle cx="6.3" cy="3.9" r=".32" />
+            <circle cx="2.05" cy="5.3" r=".32" /><circle cx="3.75" cy="5.3" r=".32" /><circle cx="5.45" cy="5.3" r=".32" /><circle cx="7.15" cy="5.3" r=".32" />
+            <circle cx="1.2" cy="6.7" r=".32" /><circle cx="2.9" cy="6.7" r=".32" /><circle cx="4.6" cy="6.7" r=".32" /><circle cx="6.3" cy="6.7" r=".32" />
+          </g>
+        </svg>
+        <span class="code-br">BR</span><span class="code-en">EN</span>
+      </button>
       <button class="theme-toggle" type="button" aria-label="Alternar entre modo claro e escuro"
-        title="Alternar tema">
+        title="Alternar tema" data-en-aria-label="Toggle between light and dark mode" data-en-title="Toggle theme">
         <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z" />
         </svg>
@@ -697,6 +784,7 @@
           <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
         </svg>
       </button>
+      </div>
     </div>
   </nav>
 
@@ -707,14 +795,14 @@
       <header class="hero">
         <div>
           <h1><span>Rudivan</span><span>Barbosa</span></h1>
-          <p class="role">Aplicando otimização matemática para tomar melhores decisões de negócio.</p>
-          <p class="lead">"O importante é não parar de questionar; a curiosidade tem sua própria razão de existir" </p>
+          <p class="role" data-en="Applying mathematical optimization to make better business decisions.">Aplicando otimização matemática para tomar melhores decisões de negócio.</p>
+          <p class="lead" data-en="&quot;The important thing is not to stop questioning; curiosity has its own reason for existing.&quot;">"O importante é não parar de questionar; a curiosidade tem sua própria razão de existir" </p>
           <div class="profile-links">
             <ul class="links">
               <li>
                 <a href="http://lattes.cnpq.br/0472632660041371">
                   <img class="ico-img" src="img/lattes-icon.svg" alt="" width="21" height="26">
-                  <span>Currículo Lattes</span>
+                  <span data-en="Lattes CV">Currículo Lattes</span>
                 </a>
               </li>
               <li>
@@ -757,7 +845,7 @@
                 <svg class="ico ico-line" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16" />
                 </svg>
-                <span>Baixar currículo (PDF)</span>
+                <span data-en="Download CV (PDF)">Baixar currículo (PDF)</span>
               </a>
             </div>
           </div>
@@ -765,7 +853,8 @@
 
         <figure>
           <svg viewBox="0 0 440 400" role="img"
-            aria-label="Curvas de nível elípticas em torno de um ponto de mínimo, com uma trajetória em zigue-zague que converge para esse ponto.">
+            aria-label="Curvas de nível elípticas em torno de um ponto de mínimo, com uma trajetória em zigue-zague que converge para esse ponto."
+            data-en-aria-label="Elliptical level curves around a minimum point, with a zigzag trajectory converging to that point.">
             <g transform="translate(230 200) rotate(-28)">
               <ellipse class="contour" rx="19.8" ry="12" />
               <ellipse class="contour" rx="47.9" ry="29" />
@@ -788,26 +877,26 @@
       </header>
 
       <section>
-        <h2>Competências técnicas</h2>
+        <h2 data-en="Technical skills">Competências técnicas</h2>
         <div class="skills">
           <div class="skill-group">
-            <h3>Classes de problemas</h3>
+            <h3 data-en="Problem classes">Classes de problemas</h3>
             <ul class="chips" role="list">
-              <li>Programação linear</li>
-              <li>Programação inteira</li>
-              <li>Programação não linear</li>
-              <li>Otimização multiobjetivo</li>
+              <li data-en="Linear programming">Programação linear</li>
+              <li data-en="Integer programming">Programação inteira</li>
+              <li data-en="Nonlinear programming">Programação não linear</li>
+              <li data-en="Multi-objective optimization">Otimização multiobjetivo</li>
             </ul>
           </div>
           <div class="skill-group">
-            <h3>Métodos de solução</h3>
+            <h3 data-en="Solution methods">Métodos de solução</h3>
             <ul class="chips" role="list">
-              <li>Programação dinâmica</li>
-              <li>Dantzig-Wolfe/Geração de colunas</li>
+              <li data-en="Dynamic programming">Programação dinâmica</li>
+              <li data-en="Dantzig-Wolfe decomposition/Column generation">Dantzig-Wolfe/Geração de colunas</li>
             </ul>
           </div>
           <div class="skill-group">
-            <h3>Meta-heurísticas</h3>
+            <h3 data-en="Metaheuristics">Meta-heurísticas</h3>
             <ul class="chips" role="list">
               <li>Genetic Algorithm</li>
               <li>Greedy Randomized Adaptive Search Procedure</li>
@@ -817,7 +906,7 @@
             </ul>
           </div>
           <div class="skill-group">
-            <h3>Linguagens de programação</h3>
+            <h3 data-en="Programming languages">Linguagens de programação</h3>
             <ul class="chips" role="list">
               <li>C++</li>
               <li>C</li>
@@ -825,13 +914,13 @@
             </ul>
           </div>
           <div class="skill-group skill-wide">
-            <h3>Solvers e modelagem</h3>
+            <h3 data-en="Solvers and modeling">Solvers e modelagem</h3>
             <ul class="chips" role="list">
               <li>Gurobi</li>
               <li>CPLEX</li>
               <li>CONOPT</li>
               <li>Knitro</li>
-              <li>Hexaly (ex-LocalSolver)</li>
+              <li data-en="Hexaly (formerly LocalSolver)">Hexaly (ex-LocalSolver)</li>
               <li>AMPL</li>
               <li>IBM Concert Technology</li>
             </ul>
@@ -842,7 +931,7 @@
 
     <div class="tab" id="academico" hidden>
       <section class="work">
-        <h2>Acadêmico</h2>
+        <h2 data-en="Academic">Acadêmico</h2>
         <div class="job">
           <div class="side">
             <a href="https://www3.decom.ufop.br/pos"><img class="logo logo-ufop" src="img/ufop-logo.svg"
@@ -850,29 +939,29 @@
           </div>
           <dl class="body">
             <div class="row">
-              <dt>Doutorando em Ciência da Computação</dt>
+              <dt data-en="PhD candidate in Computer Science">Doutorando em Ciência da Computação</dt>
               <dd><a href="https://www3.decom.ufop.br/pos">Departamento de Ciência da Computação</a><br>
-                Universidade Federal de Ouro Preto</dd>
+                <span>Universidade Federal de Ouro Preto</span></dd>
             </div>
             <div class="row">
-              <dt>Tese</dt>
-              <dd>Problema de Localização-Alocação e Roteamento de Mamógrafos</dd>
+              <dt data-en="Thesis">Tese</dt>
+              <dd data-en="Location-Allocation and Routing Problem for Mammography Units">Problema de Localização-Alocação e Roteamento de Mamógrafos</dd>
             </div>
             <div class="row">
-              <dt>Orientador</dt>
+              <dt data-en="Advisor">Orientador</dt>
               <dd><a href="http://lattes.cnpq.br/6078945717558464">Marcone Jamilson Freitas Souza</a></dd>
             </div>
             <div class="row">
-              <dt>Coorientador</dt>
+              <dt data-en="Co-advisor">Coorientador</dt>
               <dd><a href="http://lattes.cnpq.br/7663676652054207">Gilberto de Miranda Junior</a></dd>
             </div>
             <div class="row">
-              <dt>Conclusão</dt>
-              <dd>até o momento.</dd>
+              <dt data-en="Completion">Conclusão</dt>
+              <dd data-en="In progress.">até o momento.</dd>
             </div>
             <div class="row">
-              <dt>Local</dt>
-              <dd>Ouro Preto, MG.</dd>
+              <dt data-en="Location">Local</dt>
+              <dd data-en="Ouro Preto, MG, Brazil.">Ouro Preto, MG.</dd>
             </div>
           </dl>
         </div>
@@ -884,28 +973,28 @@
           </div>
           <dl class="body">
             <div class="row">
-              <dt>Mestre em Otimização</dt>
+              <dt data-en="Master's in Optimization">Mestre em Otimização</dt>
               <dd>
                 <a href="https://www.icmc.usp.br/">Instituto de Ciências Matemáticas e de Computação</a><br>
-                Universidade de São Paulo
+                <span>Universidade de São Paulo</span>
               </dd>
             </div>
             <div class="row">
-              <dt>Dissertação</dt>
-              <dd>Abordagens de solução para o problema de dimensionamento e sequenciamento de lotes com aceitação de
+              <dt data-en="Dissertation">Dissertação</dt>
+              <dd data-en="Solution approaches for the lot-sizing and scheduling problem with order acceptance">Abordagens de solução para o problema de dimensionamento e sequenciamento de lotes com aceitação de
                 pedidos</dd>
             </div>
             <div class="row">
-              <dt>Orientadora</dt>
+              <dt data-en="Advisor">Orientadora</dt>
               <dd><a href="http://lattes.cnpq.br/0756373063566786">Maristela Oliveira dos Santos</a></dd>
             </div>
             <div class="row">
-              <dt>Conclusão</dt>
+              <dt data-en="Completion">Conclusão</dt>
               <dd>2019.</dd>
             </div>
             <div class="row">
-              <dt>Local</dt>
-              <dd>São Carlos, SP.</dd>
+              <dt data-en="Location">Local</dt>
+              <dd data-en="São Carlos, SP, Brazil.">São Carlos, SP.</dd>
             </div>
           </dl>
         </div>
@@ -917,25 +1006,25 @@
           </div>
           <dl class="body">
             <div class="row">
-              <dt>Bacharel em Matemática</dt>
+              <dt data-en="Bachelor's in Mathematics">Bacharel em Matemática</dt>
               <dd><a href="https://saomateus.ufes.br/">Centro Universitário Norte do Espírito Santo</a><br>
-                Universidade Federal do Espírito Santo</dd>
+                <span>Universidade Federal do Espírito Santo</span></dd>
             </div>
             <div class="row">
-              <dt>TCC</dt>
-              <dd>Projeto ótimo de rede semi-mecanizada</dd>
+              <dt data-en="Undergraduate thesis">TCC</dt>
+              <dd data-en="Optimal design of a semi-mechanized network">Projeto ótimo de rede semi-mecanizada</dd>
             </div>
             <div class="row">
-              <dt>Orientador</dt>
+              <dt data-en="Advisor">Orientador</dt>
               <dd><a href="http://lattes.cnpq.br/7663676652054207">Gilberto de Miranda Junior</a></dd>
             </div>
             <div class="row">
-              <dt>Conclusão</dt>
+              <dt data-en="Completion">Conclusão</dt>
               <dd>2017.</dd>
             </div>
             <div class="row">
-              <dt>Local</dt>
-              <dd>São Mateus, ES.</dd>
+              <dt data-en="Location">Local</dt>
+              <dd data-en="São Mateus, ES, Brazil.">São Mateus, ES.</dd>
             </div>
           </dl>
         </div>
@@ -944,7 +1033,7 @@
 
     <div class="tab" id="profissional" hidden>
       <section class="work">
-        <h2>Atuação profissional</h2>
+        <h2 data-en="Professional experience">Atuação profissional</h2>
         <div class="job">
           <div class="side">
             <a href="https://pt.cassotis.com/"><img class="logo logo-cassotis" src="img/cassotis-logo.svg"
@@ -953,7 +1042,7 @@
           <dl class="body">
             <div class="row">
               <dt>Decision Science Analyst</dt>
-              <dd>
+              <dd data-en="Building and improving mathematical optimization models for steel companies, focused on steel production planning. Development of the interface that lets users operate the tool, and technical support for clients. The tool, called Quandec, is used by clients to optimize the production plan and simulate scenarios.">
                 Atuação na criação e no aprimoramento de modelos matemáticos de otimização para empresas siderúrgicas,
                 com foco no planejamento da produção de aço. Desenvolvimento da interface que permite aos usuários
                 operarem a ferramenta e suporte técnico aos clientes. A ferramenta, denominada Quandec, é utilizada
@@ -962,16 +1051,16 @@
               </dd>
             </div>
             <div class="row">
-              <dt>Empresa</dt>
+              <dt data-en="Company">Empresa</dt>
               <dd><a href="https://pt.cassotis.com/">Cassotis consulting</a></dd>
             </div>
             <div class="row">
-              <dt>Período</dt>
-              <dd>04/2024 até o momento.</dd>
+              <dt data-en="Period">Período</dt>
+              <dd data-en="04/2024 – present.">04/2024 até o momento.</dd>
             </div>
             <div class="row">
-              <dt>Local</dt>
-              <dd>Belo Horizonte, MG.</dd>
+              <dt data-en="Location">Local</dt>
+              <dd data-en="Belo Horizonte, MG, Brazil.">Belo Horizonte, MG.</dd>
             </div>
           </dl>
         </div>
@@ -983,23 +1072,23 @@
           </div>
           <dl class="body">
             <div class="row">
-              <dt>Professor substituto no Departamento de Matemática Aplicada</dt>
-              <dd>
+              <dt data-en="Substitute Professor, Department of Applied Mathematics">Professor substituto no Departamento de Matemática Aplicada</dt>
+              <dd data-en="Courses taught: Linear Algebra, Differential and Integral Calculus, Analytic Geometry, and Basic Mathematics.">
                 Disciplinas ministradas: Álgebra Linear, Cálculo Diferencial e Integral, Geometria Analítica e
                 Matemática Básica.
               </dd>
             </div>
             <div class="row">
-              <dt>Instituição</dt>
+              <dt data-en="Institution">Instituição</dt>
               <dd><a href="https://saomateus.ufes.br/">Universidade Federal do Espírito Santo</a></dd>
             </div>
             <div class="row">
-              <dt>Período</dt>
-              <dd>09/2020 a 10/2021.</dd>
+              <dt data-en="Period">Período</dt>
+              <dd data-en="09/2020 – 10/2021.">09/2020 a 10/2021.</dd>
             </div>
             <div class="row">
-              <dt>Local</dt>
-              <dd>São Mateus, ES.</dd>
+              <dt data-en="Location">Local</dt>
+              <dd data-en="São Mateus, ES, Brazil.">São Mateus, ES.</dd>
             </div>
           </dl>
         </div>
@@ -1008,27 +1097,27 @@
 
     <div class="tab" id="artigos" hidden>
       <section>
-        <h2>Artigos publicados</h2>
+        <h2 data-en="Published papers">Artigos publicados</h2>
         <ol class="pubs body">
           <li>
-            <a href="https://doi.org/10.14488/enegep2024_tn_wpg_413_2029_47921">Dimensionamento e sequenciamento de
-              lotes da produção: insights de uma revisão sistemática da literatura e análise bibliométrica</a>
-            <p class="abstract">Este estudo investiga as estratégias de dimensionamento e sequenciamento da produção, utilizando uma abordagem metodológica dupla de revisão sistemática e análise bibliométrica. Visa descobrir métodos eficientes e emergentes, seguindo o protocolo PRISMA para garantir uma análise precisa.</p>
+            <a href="https://doi.org/10.14488/enegep2024_tn_wpg_413_2029_47921" data-en="Production lot-sizing and scheduling: insights from a systematic literature review and bibliometric analysis">Dimensionamento e sequenciamento de
+              lotes da produção: insights de uma revisão sistemática da literatura e análise bibliométrica</a><span class="lang-note" data-en="(in Portuguese)"></span>
+            <p class="abstract" data-en="This study investigates production lot-sizing and scheduling strategies, using a dual methodological approach of systematic review and bibliometric analysis. It aims to uncover efficient and emerging methods, following the PRISMA protocol to ensure a rigorous analysis.">Este estudo investiga as estratégias de dimensionamento e sequenciamento da produção, utilizando uma abordagem metodológica dupla de revisão sistemática e análise bibliométrica. Visa descobrir métodos eficientes e emergentes, seguindo o protocolo PRISMA para garantir uma análise precisa.</p>
           </li>
           <li>
             <a href="https://doi.org/10.5220/0011852200003467">Mammography Unit Location: Reconciling Maximum Coverage
               and Budgetary Constraints</a>
-            <p class="abstract">Este trabalho aborda o Problema Biobjetivo de Localização e Alocação de Unidades de Mamografia. O problema consiste em alocar unidades de mamografia atendendo a dois objetivos e respeitando as restrições de capacidade dos equipamentos para a realização dos exames e de distância máxima de deslocamento para o atendimento. A primeira função objetivo maximiza a cobertura dos exames realizados pelos equipamentos de mamografia alocados, enquanto a segunda função minimiza a quantidade total de equipamentos utilizados. Introduzimos um modelo biobjetivo de programação linear inteira mista para representar o problema e aplicamos os métodos da soma ponderada e do ε-restrito para resolvê-lo.</p>
+            <p class="abstract" data-en="This work addresses the Bi-objective Mammography Unit Location-Allocation Problem. The problem consists of allocating mammography units subject to two objectives, while respecting capacity constraints on the number of exams each machine can perform and a maximum travel distance for care. The first objective function maximizes the coverage of the exams performed by the allocated mammography machines, while the second minimizes the total number of machines used. We introduce a bi-objective mixed-integer linear programming model to represent the problem and apply the weighted-sum and ε-constraint methods to solve it.">Este trabalho aborda o Problema Biobjetivo de Localização e Alocação de Unidades de Mamografia. O problema consiste em alocar unidades de mamografia atendendo a dois objetivos e respeitando as restrições de capacidade dos equipamentos para a realização dos exames e de distância máxima de deslocamento para o atendimento. A primeira função objetivo maximiza a cobertura dos exames realizados pelos equipamentos de mamografia alocados, enquanto a segunda função minimiza a quantidade total de equipamentos utilizados. Introduzimos um modelo biobjetivo de programação linear inteira mista para representar o problema e aplicamos os métodos da soma ponderada e do ε-restrito para resolvê-lo.</p>
           </li>
           <li>
-            <a href="https://doi.org/10.59254/sbpo-2023-174767">Um novo modelo para o problema de dimensionamento e
-              sequenciamento de lotes com aceitação de pedidos</a>
-            <p class="abstract">Este artigo apresenta um novo modelo de programação inteira mista para o problema de dimensionamento e sequenciamento de lotes com aceitação de pedidos. As demandas dos clientes são agregadas em pedidos, os quais podem ou não serem aceitos e, estes devem ser entregues dentro de uma janela de tempo. Os itens são perecíveis e podem permanecer no estoque por um determinado tempo (shelf-life). O objetivo do problema é maximizar o lucro gerado pelo atendimento dos pedidos, descontando os custos de estoque e das preparações da máquina.</p>
+            <a href="https://doi.org/10.59254/sbpo-2023-174767" data-en="A new model for the lot-sizing and scheduling problem with order acceptance">Um novo modelo para o problema de dimensionamento e
+              sequenciamento de lotes com aceitação de pedidos</a><span class="lang-note" data-en="(in Portuguese)"></span>
+            <p class="abstract" data-en="This paper presents a new mixed-integer programming model for the lot-sizing and scheduling problem with order acceptance. Customer demands are aggregated into orders, which may or may not be accepted and must be delivered within a time window. Items are perishable and may remain in inventory for a limited time (shelf life). The objective is to maximize the profit from the orders fulfilled, net of inventory and machine setup costs.">Este artigo apresenta um novo modelo de programação inteira mista para o problema de dimensionamento e sequenciamento de lotes com aceitação de pedidos. As demandas dos clientes são agregadas em pedidos, os quais podem ou não serem aceitos e, estes devem ser entregues dentro de uma janela de tempo. Os itens são perecíveis e podem permanecer no estoque por um determinado tempo (shelf-life). O objetivo do problema é maximizar o lucro gerado pelo atendimento dos pedidos, descontando os custos de estoque e das preparações da máquina.</p>
           </li>
           <li>
-            <a href="https://doi.org/10.59254/sbpo-2019-106930">Um modelo para o problema de dimensionamento e
-              sequenciamento de lotes com aceitação de pedidos</a>
-            <p class="abstract">Este trabalho apresenta um modelo de programação inteira mista para o problema de dimensionamento e sequenciamento de lotes integrado ao problema de aceitação de pedidos e com a consideração da idade dos produtos em estoque. Neste problema, as demandas dos clientes são agregadas em pedidos, os quais podem ou não serem aceitos. Os pedidos devem ser entregues dentro de uma janela de tempo. Os itens são perecíveis e podem permanecer no estoque por um determinado tempo (shelf-life). O objetivo é maximizar o lucro gerado pelo atendimento dos pedidos, descontando os custos de estoque e de preparação da máquina. Para tratar o problema foram desenvolvidas duas heurísticas construtivas.</p>
+            <a href="https://doi.org/10.59254/sbpo-2019-106930" data-en="A model for the lot-sizing and scheduling problem with order acceptance">Um modelo para o problema de dimensionamento e
+              sequenciamento de lotes com aceitação de pedidos</a><span class="lang-note" data-en="(in Portuguese)"></span>
+            <p class="abstract" data-en="This work presents a mixed-integer programming model for the lot-sizing and scheduling problem integrated with order acceptance, accounting for the age of items in inventory. In this problem, customer demands are aggregated into orders, which may or may not be accepted. Orders must be delivered within a time window. Items are perishable and may remain in inventory for a limited time (shelf life). The objective is to maximize the profit from the orders fulfilled, net of inventory and machine setup costs. Two constructive heuristics were developed to solve the problem.">Este trabalho apresenta um modelo de programação inteira mista para o problema de dimensionamento e sequenciamento de lotes integrado ao problema de aceitação de pedidos e com a consideração da idade dos produtos em estoque. Neste problema, as demandas dos clientes são agregadas em pedidos, os quais podem ou não serem aceitos. Os pedidos devem ser entregues dentro de uma janela de tempo. Os itens são perecíveis e podem permanecer no estoque por um determinado tempo (shelf-life). O objetivo é maximizar o lucro gerado pelo atendimento dos pedidos, descontando os custos de estoque e de preparação da máquina. Para tratar o problema foram desenvolvidas duas heurísticas construtivas.</p>
           </li>
         </ol>
       </section>
@@ -1071,6 +1160,33 @@
       show();
 
       var root = document.documentElement;
+
+      // Idioma: o texto em português fica no HTML; a tradução está nos atributos data-en*
+      var attrs = ['alt', 'aria-label', 'title', 'content'];
+      var i18n = document.querySelectorAll('[data-en],[data-en-alt],[data-en-aria-label],[data-en-title],[data-en-content]');
+      function setLang(lang) {
+        var en = lang === 'en';
+        if (en) root.dataset.lang = 'en'; else delete root.dataset.lang;
+        root.lang = en ? 'en' : 'pt-BR';
+        i18n.forEach(function (el) {
+          if (el.hasAttribute('data-en')) {
+            if (!el.hasAttribute('data-pt')) el.setAttribute('data-pt', el.innerHTML);
+            el.innerHTML = en ? el.getAttribute('data-en') : el.getAttribute('data-pt');
+          }
+          attrs.forEach(function (a) {
+            if (!el.hasAttribute('data-en-' + a)) return;
+            if (!el.hasAttribute('data-pt-' + a)) el.setAttribute('data-pt-' + a, el.getAttribute(a));
+            el.setAttribute(a, el.getAttribute(en ? 'data-en-' + a : 'data-pt-' + a));
+          });
+        });
+      }
+      setLang(root.dataset.lang === 'en' ? 'en' : 'pt');
+      document.querySelector('.lang-toggle').addEventListener('click', function () {
+        var next = root.dataset.lang === 'en' ? 'pt' : 'en';
+        setLang(next);
+        try { localStorage.setItem('lang', next); } catch (e) { }
+      });
+
       var mq = window.matchMedia('(prefers-color-scheme: dark)');
       document.querySelector('.theme-toggle').addEventListener('click', function () {
         var dark = root.dataset.theme ? root.dataset.theme === 'dark' : mq.matches;
