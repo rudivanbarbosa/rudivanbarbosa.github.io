@@ -381,8 +381,14 @@
     /* Competências técnicas: grupos em duas colunas, itens como chips */
     .skills {
       display: grid;
-      gap: 2rem 3rem;
+      gap: 1.5rem;
       max-width: 46rem;
+    }
+
+    .skill-group {
+      padding: 1.5rem;
+      border-radius: 24px;
+      background: var(--chip);
     }
 
     @media (min-width: 600px) {
@@ -413,8 +419,8 @@
 
     .chips li {
       padding: 0.35rem 0.8rem;
-      border-radius: 6px;
-      background: var(--chip);
+      border-radius: 999px;
+      background: var(--bg);
       font-size: 0.9375rem;
       line-height: 1.4;
     }
