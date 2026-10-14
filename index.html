@@ -390,29 +390,6 @@
       line-height: 1.4;
     }
 
-    .contact {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .contact li {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.25rem 1rem;
-      padding-block: 0.6rem;
-    }
-
-    .contact li:first-child {
-      padding-top: 0;
-    }
-
-    .contact small {
-      color: var(--muted);
-      font-size: 0.875rem;
-    }
-
     /* Navegação */
     .nav {
       position: sticky;
@@ -576,6 +553,39 @@
       color: var(--muted);
       font-size: 0.875rem;
     }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+    }
+
+    .mail {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    .mail-addr {
+      font-size: 0.9375rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .mail:hover .mail-addr {
+      text-decoration-thickness: 2px;
+    }
+
+    .ico-mail {
+      flex: none;
+      width: 1.5rem;
+      height: auto;
+    }
   </style>
 </head>
 
@@ -733,13 +743,6 @@
             </ul>
           </div>
         </div>
-      </section>
-
-      <section>
-        <h2>Contato</h2>
-        <ul class="contact body">
-          <li><a href="mailto:rudivanbarbosa@gmail.com">rudivanbarbosa@gmail.com</a></li>
-        </ul>
       </section>
     </div>
 
@@ -936,7 +939,20 @@
   </main>
 
   <footer>
-    <div class="wrap">© 2026 Rudivan Barbosa</div>
+    <div class="wrap footer-row">
+      <span>© 2026 Rudivan Barbosa</span>
+      <a class="mail" href="mailto:rudivanbarbosa@gmail.com" title="rudivanbarbosa@gmail.com">
+        <svg class="ico-mail" viewBox="0 0 24 18" aria-hidden="true" focusable="false">
+          <path fill="#4285F4" d="M1.5 17.5h3.8V8.3L0 4.3v11.7c0 .8.7 1.5 1.5 1.5z" />
+          <path fill="#34A853" d="M18.7 17.5h3.8c.8 0 1.5-.7 1.5-1.5V4.3l-5.3 4z" />
+          <path fill="#FBBC04" d="M18.7 1.6v6.7L24 4.3V2.6C24 .6 21.8-.4 20.3.7z" />
+          <path fill="#EA4335" d="M5.3 8.3V1.6L12 6.6l6.7-5v6.7L12 13.3z" />
+          <path fill="#C5221F" d="M0 2.6v1.7l5.3 4V1.6L3.7.7C2.2-.4 0 .6 0 2.6z" />
+        </svg>
+        <span class="mail-name">Gmail</span>
+        <span class="mail-addr">rudivanbarbosa@gmail.com</span>
+      </a>
+    </div>
   </footer>
 
   <script>
