@@ -841,7 +841,8 @@
               </li>
             </ul>
             <div class="cv">
-              <a class="btn" href="cv/Rudivan_Paixao_Barbosa_Curriculo.pdf" download>
+              <a class="btn" href="cv/Rudivan_Paixao_Barbosa_Curriculo.pdf" download
+                data-en-href="cv/Rudivan_Paixao_Barbosa_CV.pdf">
                 <svg class="ico ico-line" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16" />
                 </svg>
@@ -1162,8 +1163,8 @@
       var root = document.documentElement;
 
       // Idioma: o texto em português fica no HTML; a tradução está nos atributos data-en*
-      var attrs = ['alt', 'aria-label', 'title', 'content'];
-      var i18n = document.querySelectorAll('[data-en],[data-en-alt],[data-en-aria-label],[data-en-title],[data-en-content]');
+      var attrs = ['alt', 'aria-label', 'title', 'content', 'href'];
+      var i18n = document.querySelectorAll('[data-en],[data-en-alt],[data-en-aria-label],[data-en-title],[data-en-content],[data-en-href]');
       function setLang(lang) {
         var en = lang === 'en';
         if (en) root.dataset.lang = 'en'; else delete root.dataset.lang;
