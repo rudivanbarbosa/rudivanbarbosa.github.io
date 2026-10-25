@@ -756,6 +756,50 @@
       width: 1.5rem;
       height: auto;
     }
+
+    /* Celular: abas numa única linha rolável e rodapé fora do modo fixo (não afeta telas ≥ 820px) */
+    @media (max-width: 819px) {
+      .nav .wrap {
+        flex-wrap: nowrap;
+        gap: 0.75rem;
+      }
+
+      .tabs {
+        flex-wrap: nowrap;
+        gap: 0 1.25rem;
+        min-width: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent);
+        mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent);
+      }
+
+      .tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Espaço no fim da rolagem para a última aba não ficar sob o esmaecimento */
+      .tabs::after {
+        content: "";
+        flex: none;
+        width: 1px;
+      }
+
+      .tabs a {
+        flex: none;
+        padding-block: 0.85rem 0.6rem;
+        font-size: 0.9375rem;
+        white-space: nowrap;
+      }
+
+      .nav-tools {
+        flex: none;
+      }
+
+      footer {
+        position: static;
+      }
+    }
   </style>
 </head>
 
@@ -1285,8 +1329,11 @@
         if (!document.getElementById(id) || !document.getElementById(id).classList.contains('tab')) id = 'inicio';
         tabs.forEach(function (t) { t.hidden = t.id !== id; });
         links.forEach(function (a) {
-          if (a.dataset.tab === id) a.setAttribute('aria-current', 'page');
-          else a.removeAttribute('aria-current');
+          if (a.dataset.tab !== id) return a.removeAttribute('aria-current');
+          a.setAttribute('aria-current', 'page');
+          // No celular as abas rolam na horizontal: centraliza a aba ativa
+          var bar = a.parentNode;
+          bar.scrollLeft = a.offsetLeft - bar.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2;
         });
         window.scrollTo(0, 0);
       }
