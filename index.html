@@ -757,43 +757,84 @@
       height: auto;
     }
 
-    /* Celular: abas numa única linha rolável e rodapé fora do modo fixo (não afeta telas ≥ 820px) */
+    /* Botão de menu (três linhas): só aparece no celular */
+    .menu-toggle {
+      display: none;
+    }
+
+    /* Celular: abas viram um menu suspenso e o rodapé sai do modo fixo (não afeta telas ≥ 820px) */
     @media (max-width: 819px) {
       .nav .wrap {
         flex-wrap: nowrap;
-        gap: 0.75rem;
+        padding-block: 0.6rem;
       }
 
-      .tabs {
-        flex-wrap: nowrap;
-        gap: 0 1.25rem;
-        min-width: 0;
-        overflow-x: auto;
-        scrollbar-width: none;
-        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent);
-        mask-image: linear-gradient(to right, #000 calc(100% - 1.5rem), transparent);
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        margin-left: -0.4rem;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--ink);
+        cursor: pointer;
       }
 
-      .tabs::-webkit-scrollbar {
+      .menu-toggle:focus-visible {
+        outline: 2px solid var(--accent);
+      }
+
+      .menu-toggle svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+      }
+
+      .menu-toggle .i-close,
+      .nav.menu-open .menu-toggle .i-menu {
         display: none;
       }
 
-      /* Espaço no fim da rolagem para a última aba não ficar sob o esmaecimento */
-      .tabs::after {
-        content: "";
-        flex: none;
-        width: 1px;
+      .nav.menu-open .menu-toggle .i-close {
+        display: block;
+      }
+
+      .tabs {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        padding: 0.25rem clamp(1.25rem, 5vw, 3rem) 0.75rem;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 12px 24px -16px rgba(0, 0, 0, 0.35);
+      }
+
+      .nav.menu-open .tabs {
+        display: flex;
       }
 
       .tabs a {
-        flex: none;
-        padding-block: 0.85rem 0.6rem;
-        font-size: 0.9375rem;
-        white-space: nowrap;
+        padding-block: 0.75rem;
+        border-bottom: 1px solid var(--line);
       }
 
-      .nav-tools {
-        flex: none;
+      .tabs a:last-child {
+        border-bottom: 0;
+      }
+
+      .tabs a[aria-current="page"] {
+        border-bottom-color: var(--line);
+        font-weight: 600;
       }
 
       footer {
@@ -812,7 +853,16 @@
     data-en-alt="Network with four facilities and the demand points served by each one.">
   <nav class="nav" aria-label="Seções" data-en-aria-label="Sections">
     <div class="wrap">
-      <div class="tabs">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="tabs"
+        aria-label="Abrir menu de seções" title="Menu" data-en-aria-label="Open sections menu">
+        <svg class="i-menu" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 7h14M5 12h14M5 17h14" />
+        </svg>
+        <svg class="i-close" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18" />
+        </svg>
+      </button>
+      <div class="tabs" id="tabs">
         <a href="#inicio" data-tab="inicio" data-en="Home">Página inicial</a>
         <a href="#academico" data-tab="academico" data-en="Academic profile">Perfil acadêmico</a>
         <a href="#profissional" data-tab="profissional" data-en="Professional profile">Perfil profissional</a>
@@ -1329,16 +1379,24 @@
         if (!document.getElementById(id) || !document.getElementById(id).classList.contains('tab')) id = 'inicio';
         tabs.forEach(function (t) { t.hidden = t.id !== id; });
         links.forEach(function (a) {
-          if (a.dataset.tab !== id) return a.removeAttribute('aria-current');
-          a.setAttribute('aria-current', 'page');
-          // No celular as abas rolam na horizontal: centraliza a aba ativa
-          var bar = a.parentNode;
-          bar.scrollLeft = a.offsetLeft - bar.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2;
+          if (a.dataset.tab === id) a.setAttribute('aria-current', 'page');
+          else a.removeAttribute('aria-current');
         });
         window.scrollTo(0, 0);
       }
       window.addEventListener('hashchange', show);
       show();
+      // Menu do celular: as três linhas abrem/fecham a lista de seções
+      var nav = document.querySelector('.nav');
+      var menuBtn = document.querySelector('.menu-toggle');
+      function setMenu(open) {
+        nav.classList.toggle('menu-open', open);
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('menu-open')); });
+      links.forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+      document.addEventListener('click', function (e) { if (!nav.contains(e.target)) setMenu(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
 
       var root = document.documentElement;
 
